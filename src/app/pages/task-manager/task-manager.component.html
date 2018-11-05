@@ -1,0 +1,7 @@
+<flink-task-manager-status [isLoading]="isLoading"></flink-task-manager-status>
+<div class="content">
+  <nz-card nzLoading [nzBordered]="false" *ngIf="isLoading"></nz-card>
+  <div class="router" [style.display]="isLoading?'none':'block'">
+    <router-outlet></router-outlet>
+  </div>
+</div>

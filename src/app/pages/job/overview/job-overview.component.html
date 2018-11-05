@@ -1,0 +1,6 @@
+<div class="container" [style.height.px]="top">
+  <flink-dagre (nodeClick)="onNodeClick($event)" [xCenter]="4"></flink-dagre>
+  <flink-job-overview-drawer [node]="selectedNode" [@drawer] *ngIf="selectedNode" (closeDrawer)="onCloseDrawer()"></flink-job-overview-drawer>
+</div>
+<flink-job-overview-list (nodeClick)="onListNodeClick($event)" [nodes]="nodes" [selectedNode]="selectedNode"></flink-job-overview-list>
+<flink-resize [(top)]="top" [mode]="'horizontal'" [baseElement]="elementRef" [resizeMin]="280" (resizeEnd)="onResizeEnd()"></flink-resize>

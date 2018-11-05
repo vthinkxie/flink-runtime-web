@@ -1,0 +1,62 @@
+<nz-table
+  class="no-border small"
+  [nzSize]="'small'"
+  [nzLoading]="isLoading"
+  [nzData]="listOfTask"
+  [nzScroll]="{x:'1430px',y:'428px'}"
+  [nzFrontPagination]="false"
+  [nzShowPagination]="false">
+  <thead (nzSortChange)="sort($event)" nzSingleSort>
+    <tr>
+      <th nzWidth="80px" nzLeft="0px">ID</th>
+      <th nzSortKey="metrics.read-bytes" nzShowSort nzWidth="140px">Bytes Received</th>
+      <th nzSortKey="metrics.read-records" nzShowSort nzWidth="150px">Records Received</th>
+      <th nzSortKey="metrics.write-bytes" nzShowSort nzWidth="120px">Bytes Sent</th>
+      <th nzSortKey="metrics.write-records" nzShowSort nzWidth="120px">Records Sent</th>
+      <th nzSortKey="attempt" nzShowSort nzWidth="100px">Attempt</th>
+      <th nzSortKey="host" nzShowSort nzWidth="200px">Host</th>
+      <th nzSortKey="start_time" nzShowSort nzWidth="150px">Start Time</th>
+      <th nzSortKey="duration" nzShowSort nzWidth="100px">Duration</th>
+      <th nzSortKey="end-time" nzShowSort nzWidth="150px">End Time</th>
+      <th nzSortKey="status" nzShowSort nzWidth="120px" nzRight="0px">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of listOfTask; trackBy:trackTaskBy;">
+      <td nzLeft="0">
+        {{ task.subtask }}
+      </td>
+      <td>
+        <span *ngIf="task.metrics['read-bytes-complete'];else loadingTemplate">
+          {{ task.metrics['read-bytes'] | humanizeBytes }}
+        </span>
+      </td>
+      <td>
+        <span *ngIf="task.metrics['read-records-complete'];else loadingTemplate">
+          {{ task.metrics['read-records'] | number:'1.0-0' }}
+        </span>
+      </td>
+      <td>
+        <span *ngIf="task.metrics['write-bytes-complete'];else loadingTemplate">
+          {{ task.metrics['write-bytes'] | humanizeBytes }}
+        </span>
+      </td>
+      <td>
+        <span *ngIf="task.metrics['write-records-complete'];else loadingTemplate">
+          {{ task.metrics['write-records'] | number:'1.0-0' }}
+        </span>
+      </td>
+      <td>{{ task.attempt + 1 }}</td>
+      <td>{{ task.host }}</td>
+      <td>{{ task["start_time"] | humanizeDate: 'yyyy-MM-dd HH:mm:ss' }}</td>
+      <td>{{ task.duration | humanizeDuration }}</td>
+      <td>{{ task["end-time"] | humanizeDate: 'yyyy-MM-dd HH:mm:ss' }}</td>
+      <td nzRight="0px">
+        <flink-job-badge [state]="task.status"></flink-job-badge>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<ng-template #loadingTemplate>
+  <i nz-icon type="loading"></i>
+</ng-template>

@@ -1,0 +1,33 @@
+<nz-card [nzBordered]="false" [nzTitle]="title" [nzLoading]="isLoading">
+  <nz-table
+    class="no-border"
+    [nzSize]="'small'"
+    [nzData]="listOfJob"
+    [nzFrontPagination]="false"
+    [nzShowPagination]="false">
+    <thead (nzSortChange)="sort($event)" nzSingleSort>
+      <tr>
+        <th>Job Name</th>
+        <th nzShowSort nzSortKey="start-time">Start Time</th>
+        <th nzShowSort nzSortKey="duration">Duration</th>
+        <th nzShowSort nzSortKey="end-time">End Time</th>
+        <th>Tasks</th>
+        <th nzShowSort nzSortKey="state">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let job of listOfJob; trackBy:trackJobBy;" (click)="navigateToJob(job.jid)" class="clickable">
+        <td>{{ job.name }}</td>
+        <td>{{ job["start-time"] | humanizeDate: 'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td>{{ job.duration | humanizeDuration }}</td>
+        <td>{{ job["end-time"] | humanizeDate: 'yyyy-MM-dd HH:mm:ss' }}</td>
+        <td>
+          <flink-task-badge [tasks]="job.tasks"></flink-task-badge>
+        </td>
+        <td>
+          <flink-job-badge [state]="job.state"></flink-job-badge>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</nz-card>

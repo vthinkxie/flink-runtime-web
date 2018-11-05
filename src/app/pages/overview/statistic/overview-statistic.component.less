@@ -1,0 +1,41 @@
+@import "../../../../theme";
+
+nz-card {
+  font-family: "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  ::ng-deep .ant-card-body {
+    padding: 0 24px 8px;
+  }
+}
+
+.total {
+  color: @success-color;
+  font-size: 36px;
+  line-height: 38px;
+}
+
+.footer {
+  padding-top: 9px;
+  margin-top: 16px;
+  border-top: 1px solid @border-color-split;
+  .field {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 22px;
+    span {
+      line-height: 22px;
+      &:last-child {
+        margin-left: 8px;
+        font-weight: 600;
+        color: @heading-color;
+      }
+    }
+  }
+}
+
+.col {
+  margin-bottom: 24px;
+}
+
+nz-divider {
+  margin: 0 12px;
+}

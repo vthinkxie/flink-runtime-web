@@ -1,0 +1,8 @@
+<svg:g class="node node-rect">
+  <svg:foreignObject class="node-labels-container" [attr.y]="node.height ? (-node.height/2) : 0" [attr.width]="200" [attr.height]="node.height">
+    <xhtml:div class="node-label-wrapper">
+      <h4 class="content-wrap">{{ description }}</h4>
+      <xhtml:div class="node-label">parallelism: {{parallelism}}</xhtml:div>
+    </xhtml:div>
+  </svg:foreignObject>
+</svg:g>

@@ -1,0 +1,3 @@
+<nz-tabset [nzTabBarGutter]="8" [nzSelectedIndex]="navIndex">
+  <nz-tab *ngFor="let nav of listOfNavigation" [nzTitle]="nav.title" (nzClick)="navigateTo(nav.path)"></nz-tab>
+</nz-tabset>

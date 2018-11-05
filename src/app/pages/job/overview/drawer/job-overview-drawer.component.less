@@ -1,0 +1,39 @@
+@import "../../../../../theme";
+
+:host {
+  display: block;
+  z-index: 10;
+  ::ng-deep {
+    .ant-tabs-tabpane {
+      position: relative;
+      top: -16px;
+      overflow: auto;
+    }
+    .ant-tabs:not(.ant-tabs-vertical)>.ant-tabs-content {
+      height: calc(~"100% - 36px");
+      &>.ant-tabs-tabpane {
+        height: 100%;
+      }
+    }
+  }
+
+  nz-tabset {
+    height: 100%;
+  }
+}
+
+.close {
+  font-size: 14px;
+  top: 50%;
+  display: block;
+  transform: translateY(-50%);
+  left: -16px;
+  position: absolute;
+  background: @background-color-light;
+  padding: 12px 0;
+  border: 1px solid @border-color-split;
+  &:hover {
+    color: #ffffff;
+    background: @primary-color;
+  }
+}

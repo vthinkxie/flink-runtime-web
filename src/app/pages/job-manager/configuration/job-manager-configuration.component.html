@@ -1,0 +1,19 @@
+<nz-table
+  [nzData]="listOfConfig"
+  [nzFrontPagination]="false"
+  [nzShowPagination]="false"
+  [nzSize]="'small'"
+  class="no-border">
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let config of listOfConfig">
+      <td><strong>{{ config.key }}</strong></td>
+      <td>{{ config.value }}</td>
+    </tr>
+  </tbody>
+</nz-table>

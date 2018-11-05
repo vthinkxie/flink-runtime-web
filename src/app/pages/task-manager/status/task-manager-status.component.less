@@ -1,0 +1,49 @@
+@import "../../../../theme";
+
+:host {
+  display: block;
+  background: @component-background;
+  padding: 16px 32px 0;
+  border-bottom: 1px solid @border-color-split;
+  margin: -24px -24px 0px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.name {
+  h2, flink-job-badge {
+    display: inline-block;
+  }
+  nz-divider {
+    margin: 0 24px;
+  }
+}
+
+.field {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 12px;
+  span {
+    line-height: 22px;
+    &:last-child {
+      margin-left: 8px;
+      font-weight: 700;
+      color: @heading-color;
+    }
+  }
+}
+
+.status {
+  margin-bottom: 12px;
+  nz-divider {
+    margin: 0 24px;
+  }
+}
+
+flink-navigation {
+  margin-bottom: -17px;
+  display: block;
+}

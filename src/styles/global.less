@@ -1,0 +1,50 @@
+.background {
+  span {
+    background-color: @text-color;
+  }
+}
+
+.collapse-td {
+  border-width: 0 1px 1px 1px;
+  border-bottom: 1px solid @border-color-split !important;
+  border-color: @border-color-split;
+  border-style: solid;
+  background: @border-color-split !important;
+}
+
+form.small {
+  font-size: 12px !important;
+  label {
+    font-size: 12px !important;
+  }
+  nz-form-item {
+    font-size: 12px !important;
+    margin-bottom: 12px;
+  }
+}
+
+tr.clickable {
+  cursor: pointer;
+}
+
+.no-line {
+  .ant-card-head {
+    border-bottom: 0;
+  }
+}
+
+nz-table {
+  &.no-border {
+    .ant-table-small {
+      border: none;
+      th {
+        border-radius: 0 !important;
+      }
+    }
+  }
+  &.small {
+    .ant-table {
+      font-size: 12px !important;
+    }
+  }
+}

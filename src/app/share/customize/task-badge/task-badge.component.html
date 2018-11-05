@@ -1,0 +1,5 @@
+<div class="background">
+  <ng-container *ngFor="let status of statusList">
+    <span *ngIf="tasks[status]" nz-tooltip [nzTitle]="status" [style.background]="colorMap[status]">{{ tasks[status] }}</span>
+  </ng-container>
+</div>

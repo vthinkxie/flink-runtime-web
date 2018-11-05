@@ -1,0 +1,25 @@
+<nz-tabset id="drawer" [nzTabBarGutter]="4" [nzSize]="'small'" [(nzSelectedIndex)]="index" (nzSelectedIndexChange)="refresh()" [nzAnimated]="{inkBar:true, tabPane:false}">
+  <nz-tab nzTitle="Overview">
+    <flink-job-overview-drawer-detail *ngIf="index===0" [node]="node"></flink-job-overview-drawer-detail>
+  </nz-tab>
+  <nz-tab nzTitle="SubTasks">
+    <flink-job-overview-drawer-subtasks *ngIf="index===1" [node]="node"></flink-job-overview-drawer-subtasks>
+  </nz-tab>
+  <nz-tab nzTitle="TaskManagers">
+    <flink-job-overview-drawer-taskmanagers *ngIf="index===2" [node]="node"></flink-job-overview-drawer-taskmanagers>
+  </nz-tab>
+  <nz-tab nzTitle="Watermarks">
+    <flink-job-overview-drawer-watermarks *ngIf="index===3" [node]="node"></flink-job-overview-drawer-watermarks>
+  </nz-tab>
+  <nz-tab nzTitle="Accumulators">
+    <flink-job-overview-drawer-accumulators *ngIf="index===4" [node]="node"></flink-job-overview-drawer-accumulators>
+  </nz-tab>
+  <nz-tab nzTitle="Back Pressure">
+    <flink-job-overview-drawer-backpressure *ngIf="index===5" [node]="node"></flink-job-overview-drawer-backpressure>
+  </nz-tab>
+  <nz-tab nzTitle="Metrics">
+    <flink-job-overview-drawer-chart *ngIf="index===6" [node]="node"></flink-job-overview-drawer-chart>
+  </nz-tab>
+</nz-tabset>
+
+<a class="close" (click)="closeDrawer.emit()"><i nz-icon type="right"></i></a>

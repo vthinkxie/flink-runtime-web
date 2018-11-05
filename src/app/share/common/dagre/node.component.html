@@ -1,0 +1,24 @@
+<svg:g class="node node-circle" nz-tooltip [nzTitle]="node.description" [(nzVisible)]="visible">
+  <svg:circle class="q-border" r="1"></svg:circle>
+  <svg:circle class="inq"
+    [attr.stroke-dasharray]="inQDashArray" r="1"></svg:circle>
+  <svg:circle class="outq"
+    [attr.stroke-dasharray]="outQDashArray" r="1"></svg:circle>
+  <svg:rect *ngIf="(inQ < 1 || outQ < 1) && (inQ > 0 && outQ > 0)" y="-37.5" x="-1" width="2" height="75" rx="1" class="split"/>
+  <svg:circle class="background" transform="scale(32)" r="1"></svg:circle>
+  <svg:text class="name">
+    <tspan x="0" y="0" dx="0" dy="-20">{{ name | slice:0:6 }}</tspan>
+    <tspan x="0" y="0" dx="0" dy="-10">{{ name | slice:6:18 }}</tspan>
+    <tspan x="0" y="0" dx="0" dy="0">{{ name | slice:18:33 }}</tspan>
+    <tspan x="0" y="0" dx="0" dy="10">{{ name | slice:33:45 }}</tspan>
+    <tspan *ngIf="name.length>52" x="0" y="0" dx="0" dy="20">{{ name | slice:45:51 }} ...</tspan>
+    <tspan *ngIf="name.length<=52" x="0" y="0" dx="0" dy="20">{{ name | slice:45:51 }} </tspan>
+  </svg:text>
+  <svg:text class="fill-text" y="-10" x="-60" *ngIf="showInQ">{{ inQ | percent }}</svg:text>
+  <svg:text class="fill-text" y="-10" x="60" *ngIf="showOutQ">{{ outQ | percent }}</svg:text>
+  <svg:foreignObject class="node-labels-container" y="-10" x="-60" width="120" height="6em">
+    <xhtml:div class="node-label-wrapper">
+      <xhtml:div class="node-label">parallelism: {{parallelism}}</xhtml:div>
+    </xhtml:div>
+  </svg:foreignObject>
+</svg:g>

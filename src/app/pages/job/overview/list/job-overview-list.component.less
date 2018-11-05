@@ -1,0 +1,35 @@
+@import "../../../../../theme";
+
+:host {
+  display: block;
+  position: relative;
+}
+
+.name {
+  overflow: hidden;
+  a {
+    position: absolute;
+    display: inline-block;
+    width: 100%;
+    line-height: 34px;
+    top: 0;
+    left: 8px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.selected {
+  background: @primary-color;
+  color: #ffffff;
+  a {
+    color: #ffffff;
+  }
+  &:hover {
+    td {
+      background: @primary-color;
+    }
+  }
+}
+

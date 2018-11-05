@@ -1,0 +1,21 @@
+<nz-table
+  class="no-border small"
+  [nzSize]="'small'"
+  [nzLoading]="isLoading"
+  [nzData]="listOfWaterMark"
+  [nzScroll]="{y:'428px'}"
+  [nzFrontPagination]="false"
+  [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th nzWidth="50%">SubTask</th>
+      <th nzWidth="50%">Watermark</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let watermark of listOfWaterMark; trackBy:trackWatermarkBy;">
+      <td>{{ watermark.subTaskIndex }}</td>
+      <td>{{ watermark.watermark | humanizeWatermark }}</td>
+    </tr>
+  </tbody>
+</nz-table>

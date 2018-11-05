@@ -1,0 +1,74 @@
+@import "../../../../theme";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+nz-slider {
+  position: absolute;
+  right: 12px;
+  height: 200px;
+  top: 50%;
+  margin-top: -100px;
+}
+
+.graph {
+  user-select: none;
+
+  .edge-marker {
+    color: @text-color;
+    fill: @text-color;
+  }
+  .edge-marker-focus {
+    color: @primary-color;
+    fill: @primary-color;
+  }
+  .edge {
+    stroke: @text-color;
+    stroke-opacity: 0.4;
+    fill: none;
+
+    &.focused {
+      stroke: @primary-color;
+      stroke-linecap: round;
+      stroke-dashoffset: 0;
+      stroke-dasharray: 10;
+      stroke-opacity: 1;
+      animation: circle-draw .3s linear infinite;
+    }
+
+  }
+
+  .link-group {
+    .edge-label {
+      stroke: none;
+      font-size: 10px;
+      fill: @text-color;
+    }
+  }
+
+  .panning-rect {
+    fill: rgba(0, 0, 0, 0);
+    cursor: move;
+  }
+  .nodes-chart-overlay {
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity ease-in .45s;
+    fill: @component-background;
+    &.active {
+      opacity: .7;
+    }
+  }
+}
+
+@keyframes circle-draw {
+  0% {
+    stroke-dashoffset: 20;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

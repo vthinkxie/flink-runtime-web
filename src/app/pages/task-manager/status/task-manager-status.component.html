@@ -1,0 +1,40 @@
+<div *ngIf="!isLoading" class="wrapper">
+  <div class="name">
+    <h2>{{ detail.path }}</h2>
+    <nz-divider [nzType]="'vertical'"></nz-divider>
+    <span>{{ detail.id }}</span>
+  </div>
+  <div class="status">
+    <div class="field">
+      <span>Data Port:</span>
+      <span>{{ detail.dataPort }}</span>
+    </div>
+    <nz-divider [nzType]="'vertical'"></nz-divider>
+    <div class="field">
+      <span>Free Slots / All Slots:</span>
+      <span>{{ detail.slotsNumber }} / {{ detail.freeSlots }}</span>
+    </div>
+    <nz-divider [nzType]="'vertical'"></nz-divider>
+    <div class="field">
+      <span>CPU Cores:</span>
+      <span>{{ detail.hardware.cpuCores }}</span>
+    </div>
+    <nz-divider [nzType]="'vertical'"></nz-divider>
+    <div class="field">
+      <span>Physical Memory:</span>
+      <span>{{ detail.hardware.physicalMemory | humanizeBytes }}</span>
+    </div>
+    <nz-divider [nzType]="'vertical'"></nz-divider>
+    <div class="field">
+      <span>JVM Heap Size:</span>
+      <span>{{ detail.hardware.freeMemory | humanizeBytes }}</span>
+    </div>
+    <nz-divider [nzType]="'vertical'"></nz-divider>
+    <div class="field">
+      <span>Flink Managed Memory:</span>
+      <span>{{ detail.hardware.managedMemory | humanizeBytes }}</span>
+    </div>
+  </div>
+  <flink-navigation [listOfNavigation]="listOfNavigation"></flink-navigation>
+</div>
+<nz-card nzLoading *ngIf="isLoading" [nzBordered]="false"></nz-card>

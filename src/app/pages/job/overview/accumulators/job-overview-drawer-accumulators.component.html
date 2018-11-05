@@ -1,0 +1,55 @@
+<nz-tabset [nzTabBarGutter]="4" [nzSize]="'small'">
+  <nz-tab nzTitle="Vertex Accumulators">
+    <nz-table
+      class="no-border small"
+      [nzSize]="'small'"
+      [nzLoading]="isLoading"
+      [nzData]="listOfAccumulator"
+      [nzScroll]="{y:'337px'}"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false">
+      <thead>
+        <tr>
+          <th nzWidth="33.33%">Name</th>
+          <th nzWidth="33.33%">Type</th>
+          <th nzWidth="33.33%">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let accumulator of listOfAccumulator; trackBy:trackAccumulatorBy;">
+          <td>{{ accumulator.name }}</td>
+          <td>{{ accumulator.type }}</td>
+          <td>{{ accumulator.value }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-tab>
+  <nz-tab nzTitle="SubTask Accumulators">
+    <nz-table
+      class="no-border small"
+      [nzSize]="'small'"
+      [nzLoading]="isLoading"
+      [nzData]="listOfSubTaskAccumulator"
+      [nzScroll]="{y:'337px'}"
+      [nzFrontPagination]="false"
+      [nzShowPagination]="false">
+      <thead>
+        <tr>
+          <th nzWidth="33.33%">Name</th>
+          <th nzWidth="33.33%">Type</th>
+          <th nzWidth="33.33%">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let accumulator of listOfSubTaskAccumulator; trackBy:trackAccumulatorBy;">
+          <td colspan="3">
+            ({{ accumulator.subtask }}) {{ accumulator.host }}, attempt: {{ accumulator.attempt + 1 }}
+          </td>
+          <td>{{ accumulator.name }}</td>
+          <td>{{ accumulator.type }}</td>
+          <td>{{ accumulator.value }}</td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </nz-tab>
+</nz-tabset>
