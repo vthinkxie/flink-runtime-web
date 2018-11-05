@@ -1,5 +1,7 @@
 Flink Runtime Web
 =================
+[![Travis branch](https://travis-ci.com/vthinkxie/flink-runtime-web.svg?branch=master)](https://travis-ci.com/vthinkxie/flink-runtime-web)
+
 Flink Runtime Web is an open source, dashboard and metric monitor for [Flink](https://flink.apache.org/).
 
 ![](https://img.alicdn.com/tfs/TB1AHpPnlLoK1RjSZFuXXXn0XXa-2740-1920.png)
