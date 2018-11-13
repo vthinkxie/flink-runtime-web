@@ -1,51 +1,40 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
-import { PipeModule } from 'pipes/pipe.module';
-import { DagreModule } from './common/dagre/dagre.module';
-import { LayoutComponent } from './common/layout/layout.component';
-import { TaskBadgeComponent } from './customize/task-badge/task-badge.component';
-import { JobBadgeComponent } from './customize/job-badge/job-badge.component';
-import { JobListComponent } from './customize/job-list/job-list.component';
-import { MonacoEditorComponent } from './common/monaco-editor/monaco-editor.component';
-import { NavigationComponent } from './common/navigation/navigation.component';
-import { FileReadDirective } from './common/file-read/file-read.directive';
-import { ResizeComponent } from './common/resize/resize.component';
-import { JobChartComponent } from './customize/job-chart/job-chart.component';
+import { LayoutComponent } from './customize/layout/layout.component';
 
 @NgModule({
   imports     : [
     CommonModule,
     NgZorroAntdModule,
-    PipeModule,
     RouterModule,
-    DagreModule,
     FormsModule
   ],
   declarations: [
-    LayoutComponent,
-    TaskBadgeComponent,
-    JobBadgeComponent,
-    JobListComponent,
-    MonacoEditorComponent,
-    NavigationComponent,
-    FileReadDirective,
-    ResizeComponent,
-    JobChartComponent
+    LayoutComponent
   ],
   exports     : [
-    LayoutComponent,
-    TaskBadgeComponent,
-    JobBadgeComponent,
-    JobListComponent,
-    DagreModule,
-    MonacoEditorComponent,
-    NavigationComponent,
-    FileReadDirective,
-    ResizeComponent,
-    JobChartComponent
+    LayoutComponent
   ]
 })
 export class ShareModule {

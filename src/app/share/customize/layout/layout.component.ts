@@ -16,6 +16,16 @@
  * limitations under the License.
  */
 
-export const environment = {
-  production: true
-};
+import { Component } from '@angular/core';
+import { StatusService } from 'services';
+
+@Component({
+  selector   : 'flink-layout',
+  templateUrl: './layout.component.html',
+  styleUrls  : [ './layout.component.less' ]
+})
+export class LayoutComponent {
+  constructor(public statusService: StatusService) {
+  }
+
+}
